@@ -1,0 +1,204 @@
+c# is a programming language developed by microsoft it's simple because
+*simple
+*Modern
+*Object-Oriented
+*Powerful for building web apps, desktops apps,games(using Unity),etc
+
+Think of c# like the english you will use to talk computers
+
+
+What is .Net?
+-------------
+.Net is a framework (or platform) developed by microsoft taht helps you build applications using C#
+
+You can create:
+
+Web Applications
+Desktop Applications
+Mobile Apps
+Games(with Unity)
+ so c# is the language and .net is the toolbox/platform where we build powerful stuff using c#
+ 
+ ---------------------------------------------------------------------------------
+  Now we will see  a first program in c#
+  
+  we are using visual studio 2022
+  
+  lets start with simple program 
+  
+  
+  we are creating a program that prints something on the screen
+  ----------------------------------
+  
+  using system;
+  
+  class program
+  {
+       static void Main(string[]args)
+	   {
+	     console.log("hello world how are you");
+	   }
+	   
+  }
+  
+  
+  lets breakdown the above code 
+  
+  line                                      what it means.
+  
+  using system; ---->  includes basic commands like input /output).Think of it as a turning on a toolset
+ 
+  class program -----> A class is like a blueprint. We name it program.
+  
+  static void ,Main(string[] args)-----> This is the main entry point . Like the engine of a car- program starts running here
+  
+  console.WriteLine("Hello venkatesh!");------> this prints a message on the screen
+ --------------------------------------------------------------------------------------------------
+ 
+ 
+ After writing the program in the c#
+ 
+ if we want to run a program in .net like in c# 
+ 
+ ctrl +f5 -> run the program without debugging
+ F5----> run with debugging
+ 
+ we will see output in a black console window.
+ 
+ NOW WE WILL DISCUSS CLEARLY WHAT WE ARE LEARNING IN C#
+ 
+ 
+ using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Hello, Venkatesh!");
+    }
+}
+
+LINE1- using system-
+---------------------
+ using system;
+ 
+ -it means : hey c# please include the system toolbox for me
+ -system is a namespace that gives access to basic functions like input,output, and more
+ -without this line, (cosole.WriteLine) won't work.
+ 
+ Line 2- class program->
+-------------------------
+-A class is like a blueprint or container that holds your code
+-program is just a name we give to that blueprint or container that holds your code
+-Everything in C# is inside the class
+
+real life example-
+-Think of a class like a home and inside it you have rooms(methods,variables,etc.).
+
+Line 3 : static void Main(string[] args)
+----------------------------------------
+This is the entry point of the program- the very first method that runs.
+Main is like the main door- C# enters your home from here
+
+keyword                           meaning
+ 
+- static        -----> Belongs to the class directly , no object needed
+- void          -----> No return value(this method doesn't give anything back)
+- Main          -----> the name of the method--- must be exactly this
+- string[]args  -----> it can receive input when the program starts(optional for now)
+
+Line4- Console.Writeline("HELLO, VENKATESH");
+------------------------------------------
+Meaning:
+This line tells the computer : "please print this message on the screen."
+
+real life example-
+imagine console.writeline is like a speaker . announcing message 
+------------------------------------------------------------------------------------
+ 
+ 
+ 
+What is a Console Application in C#? -
+------------------------------------
+A Console Application is a text-based program that runs inside a black-and-white window called the console.
+
+It doesn't have buttons, menus, or forms.
+
+It takes input from the keyboard and gives output to the screen using text.
+
+It's the best place to start learning C# programming.
+
+Real Life Analogy:
+Think of a Console App like talking to a friend using WhatsApp Chat (text only) — you type something, and it replies.
+Later, we'll build GUI apps (like video calls or games), but we first learn chat-style!
+
+Why We Use Console Apps for Learning?
+
+Reason	                  Benefit
+Simple and clean	  ->    Focus only on logic and code
+Fast to test ideas	  ->    No need to build fancy UI
+Lightweight     	  ->   Runs on all computers easily
+Perfect for beginners ->	No distractions — only pure C#
+------------------------------------------------------------------------------------------------------------------------------
+
+ Understanding Data Types in C#->
+ -----------------------------
+What is a Data Type?
+In C#, a data type defines the type of data a variable can store.
+Examples: numbers, text, yes/no, single letters, etc.
+
+Think of variables as containers, and data types as the label on the container that tells what it stores.
+
+ Two Main Types:
+Category
+| Category           | Examples                       |
+| ------------------ | ------------------------------ |
+|  Value Types     | int, float, double, char, bool   |
+|  Reference Types | string, arrays, objects          |
+
+
+Let's Start with the Most Common Value Types:
+
+1.int (Integer)->
+
+stores whole numbers
+example- 5,100,-12
+
+    int age = 25;
+
+
+2. float(small decimal)->
+
+stores numbers with decimals(need to write f at the end
+
+float weight =90.9f;
+
+
+3.double(large decimal)->
+
+more precision than float
+
+double height =5.9;
+
+
+
+4. char (character)->
+
+stores a single letter- must use single quotes 'A'
+
+char grade = 'A';
+
+
+
+
+5. bool (Boolean)->
+
+stores true or false (yes/no logic)
+
+bool islearning =true;
+
+6.string (text)->
+
+stores group of characters (words, senstences)
+
+string name= "venkatesh";
