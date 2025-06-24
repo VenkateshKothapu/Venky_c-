@@ -1,0 +1,153 @@
+Floating Point Numeric Data Types in C#-
+--------------------------------------
+
+(float, double, decimal)
+
+Why This Is Important:
+-------------------
+These data types store numbers with decimal points, and are used for:
+
+Height, weight, temperature
+
+Currency, bank balance, tax
+
+Scientific calculations
+
+They are different from int or long because they can store fractional values like 5.75 or 99.99.
+
+
+
+Let's Begin with the Basics-
+
+Definition-
+
+Floating-point numeric types are used to store real numbers with decimal points.
+They are called “floating” because the decimal point can “float” — it can appear anywhere in the number.
+
+3 Main Floating Types in C#-
+---------------------------
+
+| Data Type | Size     | Precision      | Use Case                           |
+| --------- | -------- | -------------- | ---------------------------------- |
+| `float`   | 4 bytes  | \~6–7 digits   | Weight, percentage, rough data     |
+| `double`  | 8 bytes  | \~15–16 digits | Default for decimals, scientific   |
+| `decimal` | 16 bytes | \~28–29 digits | Currency, banking, accurate values |
+
+
+Code Example: Understanding All 3 Types-
+
+
+using System;
+
+class FloatingPointDemo
+{
+    static void Main()
+    {
+        float weight = 70.5f;
+        double height = 5.89324;
+        decimal bankBalance = 12345.67m;
+
+        Console.WriteLine($"Weight (float): {weight}");
+        Console.WriteLine($"Height (double): {height}");
+        Console.WriteLine($"Bank Balance (decimal): {bankBalance}");
+    }
+}
+
+
+
+Notice:
+float value ends with **f**
+
+decimal value ends with **m**
+
+double is default, so no need to suffix
+
+
+Real-Life Analogy-
+-----------------
+| Type      | Example Use                       |
+| --------- | --------------------------------- |
+| `float`   | Weight of a bag → 22.75 kg        |
+| `double`  | Distance between Earth and Moon   |
+| `decimal` | Bank account balance → ₹99,999.99 |
+
+
+Why decimal Is Best for Money?
+
+float and double can give small precision errors
+
+In banks, even 0.01 difference matters!
+
+So always use decimal for money, tax, etc.
+
+-----------------------------------
+precision difference between float,double, and decimal
+
+
+using System;
+
+class PrecisionDemo
+{
+    static void Main()
+    {
+        float f = 1f / 3f;
+        double d = 1.0 / 3.0;
+        decimal m = 1m / 3m;
+
+        Console.WriteLine("Float: " + f);      // Less precision
+        Console.WriteLine("Double: " + d);     // Better precision
+        Console.WriteLine("Decimal: " + m);    // Most accurate
+    }
+}
+
+
+ Output:
+
+Float:   0.3333333
+Double:  0.3333333333333333
+Decimal: 0.3333333333333333333333333333
+
+This shows how decimal is super accurate — best for money & banking.
+
+
+Example 2: Area Calculation with float and double
+
+using System;
+
+class AreaCalculator
+{
+    static void Main()
+    {
+        float radius = 5.2f;
+        float areaFloat = 3.14f * radius * radius;
+
+        double radiusDouble = 5.2;
+        double areaDouble = 3.141592653589 * radiusDouble * radiusDouble;
+
+        Console.WriteLine($"Area using float: {areaFloat}");
+        Console.WriteLine($"Area using double: {areaDouble}");
+    }
+}
+
+Output-
+
+Area using float: 84.9856
+Area using double: 85.033162143644
+
+double gives more precise value than float
+
+
+ Summary for Notes:-
+
+| Type      | Use for                       | Precision      | Memory |
+| --------- | ----------------------------- | -------------- | ------ |
+| `float`   | Weight, height, temp          | \~6–7 digits   | 4B     |
+| `double`  | Scientific, math calculations | \~15–16 digits | 8B     |
+| `decimal` | Bank, money , accounting      | \~28–29 digits | 16B    |
+
+
+Use float or double for science/math
+Use decimal for anything that involves money or tax.
+
+
+
