@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Floatingtypes</StartupObject>
+    <StartupObject>DatatypesRange</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -64,6 +64,7 @@
     <Compile Include="DataTypesDemo.cs" />
     <Compile Include="Floatingtypes.cs" />
     <Compile Include="nonfloating.cs" />
+    <Compile Include="DatatypesRange.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
