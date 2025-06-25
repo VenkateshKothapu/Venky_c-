@@ -1,0 +1,123 @@
+C# Numeric Data Types – Finding Max and Min Values-
+--------------------------------------------------
+
+This topic is very useful in real-time validations, like:
+
+Age should be > 0 and ≤ 120
+
+A byte cannot go above 255
+
+Memory management and error prevention
+
+Interview questions like: “What’s the range of int?
+
+Why Learn This?
+---------------
+Every data type in C# has:
+
+-A maximum value
+
+-A minimum value
+
+You can access them using:
+
+int.MaxValue
+int.MinValue
+
+This works for all numeric types (byte, int, long, float, double, etc.)
+
+--------------------------------
+
+Clean Code: Display All Max and Min Values
+
+using System;
+
+class DataTypeRanges
+{
+    static void Main()
+    {
+        Console.WriteLine($"byte      : {byte.MinValue} to {byte.MaxValue}");
+        Console.WriteLine($"short     : {short.MinValue} to {short.MaxValue}");
+        Console.WriteLine($"int       : {int.MinValue} to {int.MaxValue}");
+        Console.WriteLine($"long      : {long.MinValue} to {long.MaxValue}");
+
+        Console.WriteLine($"float     : {float.MinValue} to {float.MaxValue}");
+        Console.WriteLine($"double    : {double.MinValue} to {double.MaxValue}");
+        Console.WriteLine($"decimal   : {decimal.MinValue} to {decimal.MaxValue}");
+
+        Console.WriteLine($"sbyte     : {sbyte.MinValue} to {sbyte.MaxValue}");
+        Console.WriteLine($"ushort    : {ushort.MinValue} to {ushort.MaxValue}");
+        Console.WriteLine($"uint      : {uint.MinValue} to {uint.MaxValue}");
+        Console.WriteLine($"ulong     : {ulong.MinValue} to {ulong.MaxValue}");
+    }
+}
+
+
+Output Sample:-
+---------------
+ 
+byte      : 0 to 255
+short     : -32768 to 32767
+int       : -2147483648 to 2147483647
+long      : -9223372036854775808 to 9223372036854775807
+float     : -3.402823E+38 to 3.402823E+38
+double    : -1.79769313486232E+308 to 1.79769313486232E+308
+decimal   : -79228162514264337593543950335 to 79228162514264337593543950335
+
+
+
+Real Life Example:-
+-------------------
+
+int age = 130;
+
+if (age < 0 || age > byte.MaxValue)
+{
+    Console.WriteLine("Invalid age entered.");
+}
+
+
+Step-by-Step Explanation-
+
+-int age = 130;
+This means we’re storing the user's age as an integer.
+
+The value right now is 130.
+
+-byte.MaxValue
+byte data type can hold values from 0 to 255 only.
+
+So: byte.MaxValue == 255
+
+if (age < 0 || age > byte.MaxValue)
+Let’s break this if condition:
+
+age < 0: checks if age is less than zero → Not allowed
+
+age > byte.MaxValue: checks if age is more than 255 → Not allowed
+
+||: means OR — so if any one condition is true, it runs the block
+
+So it is saying:
+
+“If age is less than 0 OR greater than 255, show error.”
+
+
+In our example:
+
+age = 130
+
+130 is not less than 0, and not greater than 255
+- So this condition is false, and it will not print anything.
+
+Why use byte.MaxValue?
+It's a good coding practice — instead of hardcoding:
+
+if (age > 255)
+
+we use:
+
+if (age > byte.MaxValue)
+
+This way, your code is more readable and flexible — and uses the actual range limit of the data type.
+
