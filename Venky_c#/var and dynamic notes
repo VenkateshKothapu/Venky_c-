@@ -1,0 +1,99 @@
+Understanding var and dynamic in C#-
+-------------------------------------
+
+Both var and dynamic allow flexible variable declarations, but they behave differently.
+
+
+What Is var?
+var is a compile-time keyword — C# automatically understands the type at compile time based on the assigned value.
+
+Example:-
+-------
+ 
+var name = "Venkatesh";     // string
+var age = 25;               // int
+var price = 99.99;          // double
+
+
+Key Points:
+You must initialize var at the time of declaration.
+
+The data type is fixed after compile time.
+
+You can’t change its type later.
+
+
+Example Program:-
+----------------
+
+
+using System;
+
+class VarExample
+{
+    static void Main()
+    {
+        var message = "Hello"; // treated as string
+        Console.WriteLine(message.ToUpper()); // Allowed
+
+        // message = 100; ❌ Error: Can't change string to int
+    }
+}
+
+
+-----------------------------------------------------------------------
+
+
+What Is dynamic?
+----------------
+
+dynamic is a runtime type — it allows type to change while running the program.
+
+Example:-
+--------
+dynamic x = "Venkatesh";   // string
+x = 25;                    // now it's int
+x = true;                  // now it's bool
+
+
+Example Program:-
+---------------
+
+using System;
+
+class DynamicExample
+{
+    static void Main()
+    {
+        dynamic data = "Hello";
+        Console.WriteLine(data.ToUpper());
+
+        data = 123; // Now it's int
+        Console.WriteLine(data + 1); // Outputs: 124
+
+        data = true; // Now it's bool
+        Console.WriteLine("Boolean? " + data);
+    }
+}
+
+
+Key Differences: var vs dynamic-
+-------------------------------
+
+| Feature              | `var`            | `dynamic`                       |
+| -------------------- | ---------------- | ------------------------------- |
+| Type decided at      | Compile time ✅ | Runtime ✅                       |
+| Needs initialization |  Yes            |  Not compulsory                  |
+| Type can change      |  No             |  Yes                             |
+| IntelliSense support |  Full           | Less                             |
+| Use case             | Normal variables| External APIs, JSON, reflection  |
+
+
+ Summary for Notes-
+ -----------------
+ 
+| Keyword   | Behavior     | Use When…                                 |
+| --------- | ------------ | ----------------------------------------- |
+| `var`     | Compile-time | You know the type                         |
+| `dynamic` | Runtime      | You don’t know type (e.g., JSON API data) |
+
