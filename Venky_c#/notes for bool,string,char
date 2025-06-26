@@ -1,0 +1,262 @@
+1.Understanding bool Data Type in C#
+-----------------------------------
+
+
+What is bool?
+
+The bool data type is used to store true or false values.
+
+It comes from the word Boolean
+
+It only allows two values:
+
+1.true
+
+2.false
+-------------
+
+ Real-Life Examples of Boolean Values
+ 
+ | Real Life Situation            | Boolean (C#) Equivalent |
+| ------------------------------ | ----------------------- |
+| Is the light ON?               | `true` / `false`        |
+| Do you have a driving license? | `true` / `false`        |
+| Is user logged in?             | `true` / `false`        |
+| Is payment completed?          | `true` / `false`        |
+
+Syntax in C#
+------------
+
+bool isLoggedIn = true;
+bool hasLicense = false;
+
+ Example Program: Using bool
+
+using System;
+
+class BoolExample
+{
+    static void Main()
+    {
+        bool isStudent = true;
+        bool hasPaidFees = false;
+
+        Console.WriteLine("Is Student: " + isStudent);
+        Console.WriteLine("Has Paid Fees: " + hasPaidFees);
+
+        // Conditional check
+        if (hasPaidFees)
+        {
+            Console.WriteLine("Access Granted.");
+        }
+        else
+        {
+            Console.WriteLine("Access Denied. Please pay your fees.");
+        }
+    }
+}
+
+Explanation:-
+
+
+isStudent = true → Student exists
+
+hasPaidFees = false → Not paid yet
+
+If condition checks hasPaidFees, and shows output accordingly.
+
+
+Interview Tip:-
+Q: “Can a bool store 1 or 0?”
+A:  No. In C#, bool is strictly true or false. You cannot assign 1 or 0.
+
+Summary for Notes:-
+-----------------
+| Keyword | Meaning      | Values       |
+| ------- | ------------ | ------------ |
+| `bool`  | Boolean type | `true/false` |
+
+------------------------------------------------------------------------------------------------------------
+
+
+
+2.Understanding char Data Type in C#-
+
+-What is char?
+---------------
+ 
+char stands for character, and it stores a single Unicode character.
+
+It's always written inside single quotes: 'A', '1', '#'
+
+It can store:
+
+Alphabets → 'A', 'z'
+
+Digits → '5' (as a character, not number)
+
+Symbols → '%', '@'
+
+Space → ' '
+----------------------
+
+Real-Life Examples of Characters:
+
+| Example              | Stored As |
+| -------------------- | --------- |
+| First letter of name | `'V'`     |
+| Grade                | `'A'`     |
+| Keyboard input       | `'@'`     |
+| Space                | `' '`     |
+
+Syntax in C#
+-----------
+
+char grade = 'A';
+char numberChar = '5';
+char symbol = '$';
+char space = ' ';
+
+Important Rules:-
+---------------
+Use single quotes ' ', not double quotes
+
+This is wrong: char ch = "A"; → Error! (double quotes = string)
+
+Correct: char ch = 'A';
+
+
+Example Program: Using char;-
+
+using System;
+
+class CharExample
+{
+    static void Main()
+    {
+        char initial = 'V';
+        char grade = 'A';
+        char symbol = '#';
+        char space = ' ';
+
+        Console.WriteLine("Initial: " + initial);
+        Console.WriteLine("Grade: " + grade);
+        Console.WriteLine("Symbol: " + symbol);
+        Console.WriteLine("Space (watch carefully): [" + space + "]");
+    }
+}
+
+
+
+Output:-
+-------
+ 
+Initial: V
+Grade: A
+Symbol: #
+Space (watch carefully): [ ]
+
+
+*Notice how even a space is a valid character and can be stored!
+
+
+Summary for Notes:-
+
+| Keyword | Description             | Example                    |
+| ------- | ----------------------- | -------------------------- |
+| `char`  | Stores 1 character only | `'A'`, `'%'`, `'5'`, `' '` |
+---------------------------------------------------------------------------------------------------------
+
+
+
+3.Understanding string Data Type in C#-
+-----------------------------------
+
+
+What is a string?
+
+A string stores a sequence of characters — like words, names, or sentences.
+
+It's written inside double quotes
+
+It can include:
+
+Letters: "Venkatesh"
+
+Numbers: "123"
+
+Symbols: "@abc#%"
+
+Even spaces: "hello world"
+
+
+Syntax-
+------
+
+string name = "Venkatesh";
+string city = "Bangalore";
+string mobile = "9876543210";
+
+ Real-Life Examples of string-
+ 
+ | Use Case            | Example             |
+| ------------------- | ------------------- |
+| Full Name           | `"Venkatesh"`       |
+| Email ID            | `"venky@email.com"` |
+| Address or Location | `"Bangalore"`       |
+| Message to display  | `"Login failed"`    |
+
+
+ Example Program-
+ ---------------
+ 
+ using System;
+ class StringDatatypes
+    {
+    static void Main(String[] args)
+    {
+        string Name = "Venkatesh Reddy";
+        string Email = "venkatesh@gmail.com";
+        string Location = "Hyderabad";
+        string DOB = "31/08/1999";
+        string message = "login sucessuful";
+
+
+        Console.WriteLine("Name of a Person :" + Name);
+        Console.WriteLine("Email Id :"+Email);
+        Console.WriteLine("Location :" + Location);
+        Console.WriteLine("DOB :" + DOB);
+        Console.WriteLine("Message :" + message);
+    }
+    }
+
+	
+Important Notes:-
+----------------
+ 
+| Rule                    | Example              |
+| ----------------------- | ---------------------|
+| Use double quotes `" "` | `"Hello"`            |
+| `string` can be empty   | `string msg = "";`   |
+| `string` can be `null`  | `string msg = null;` |
+
+
+*String is a Reference Type, not a value type.
+*It stores the address of the actual text in memory
+
+
+
+Summary Table-
+
+| Data Type | Meaning                       | Example          |
+| --------- | ----------------------------- | ---------------- |
+| `string`  | Sequence of characters (text) | `"Hello World!"` |
+
+
+Completed:-
+----------
+bool – true/false
+
+char – one character
+
+string – full text/sentences
