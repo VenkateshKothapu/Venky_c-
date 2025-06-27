@@ -1,0 +1,97 @@
+C# Strings – Part 1: Members of the string Class-
+------------------------------------------------
+
+Why Is This Important?-
+---------------------
+The string class in C# comes with built-in members (properties and methods) that make it easy to:
+
+Measure the text
+
+Convert cases (uppercase/lowercase)
+
+Remove extra spaces
+
+Check if a string contains a word
+
+Validate user input
+
+
+1).Length – To Get Number of Characters
+--------
+string name = "Venkatesh";
+Console.WriteLine(name.Length);  // Output: 9
+
+.Length gives total characters (including spaces).
+
+
+ 2).ToUpper()-Convert to Uppercase
+ ------------
+ 
+string city = "bangalore";
+Console.WriteLine(city.ToUpper()); // Output: BANGALORE
+
+3).ToLower()-Convert to Lowercase
+    ----------- 
+string title = "Trainer";
+Console.WriteLine(title.ToLower()); // Output: trainer
+
+4).Trim() – Removes Extra Spaces
+---------
+string name = "  Venkatesh  ";
+Console.WriteLine(name.Trim());  // Output: "Venkatesh"
+
+Useful when you take user input and want to clean it.
+
+5).Contains() – Check If Word Exists
+-------------
+string message = "Welcome to Bangalore";
+Console.WriteLine(message.Contains("Bangalore")); // true
+Console.WriteLine(message.Contains("Hyderabad")); // false
+
+6).StartsWith() and .EndsWith()
+---------------
+
+string code = "CSHARP101";
+Console.WriteLine(code.StartsWith("CS"));  // true
+Console.WriteLine(code.EndsWith("101"));   // true
+
+
+ Full Example Program: Practice All Together-
+ ------------------------------------------
+ 
+using System;
+
+class StringMembersDemo
+{
+    static void Main()
+    {
+        string course = "  CSharp Full Stack  ";
+
+        Console.WriteLine("Length: " + course.Length);               // includes spaces
+        Console.WriteLine("Trimmed: [" + course.Trim() + "]");      // removes front/back spaces
+        Console.WriteLine("Uppercase: " + course.ToUpper());        // CSHARP FULL STACK
+        Console.WriteLine("Lowercase: " + course.ToLower());        // csharp full stack
+        Console.WriteLine("Contains 'Full': " + course.Contains("Full"));  // true
+        Console.WriteLine("StartsWith 'CSharp': " + course.Trim().StartsWith("CSharp")); // true
+        Console.WriteLine("EndsWith 'Stack': " + course.Trim().EndsWith("Stack"));       // true
+    }
+}
+
+
+-----------------------------------------------------------------------------------
+
+
+
+Summary for Your Notes-
+----------------------
+
+| Member          | Purpose                         | Notes                             |
+| --------------- | ------------------------------- | --------------------------------- |
+| `.Length`       | Count total characters          | Includes spaces                   |
+| `.ToUpper()`    | Converts to uppercase           | Useful for standardization        |
+| `.ToLower()`    | Converts to lowercase           | Useful for comparisons            |
+| `.Trim()`       | Removes spaces (start + end)    | Important when getting user input |
+| `.Contains()`   | Checks if word exists           | Returns true/false                |
+| `.StartsWith()` | Checks if string starts with... | Returns true/false                |
+| `.EndsWith()`   | Checks if string ends with...   | Returns true/false                |
+
