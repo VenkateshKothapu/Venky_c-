@@ -14,6 +14,11 @@ class MembersStringClass
         Console.WriteLine("Name : " + name.EndsWith("sh"));
 
 
+        string City = " Banglore";
+        int Cityname = City.Length;
+        Console.WriteLine(Cityname);
+
+
     }
  }
 
