@@ -1,0 +1,272 @@
+C# Strings – Part 2: Substring(), Replace(), Compare()-
+------------------------------------------------------
+
+These are powerful methods you'll use a lot in:
+
+Login systems
+
+Form validations
+
+Data cleaning
+
+Filtering and reporting
+
+Let’s learn all three step-by-step 
+
+
+1. Substring(startIndex, length)-
+
+Extracts a part (slice) of the original string.
+
+ Syntax:-
+ ------
+
+string newStr = original.Substring(startIndex, length);
+
+ Example:-
+ -------
+ 
+string name = "Venkatesh Reddy";
+string firstName = name.Substring(0, 9); // 0 to 8
+Console.WriteLine(firstName);  // Output: Venkatesh
+
+Remember: Index starts from 0.
+
+Take 9 characters starting from that index
+
+It does NOT mean go till index 9
+It means extract 9 characters starting at 0
+
+Character Index Table:-
+
+| Character | V | e | n | k | a | t | e | s | h |   | R  | e  | d  | d  | y  |
+| --------- | - | - | - | - | - | - | - | - | - | - | -- | -- | -- | -- | -- |
+| Index     | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 |
+
+So:
+
+name.Substring(0, 9)
+
+starts at index 0
+takes 9 letters: from index 0 to 8 (not including 9)
+
+That’s why the result is: "Venkatesh"
+
+Summary:-
+
+| What You Gave     | What It Does                        |
+| ----------------- | ----------------------------------- |
+| `Substring(0, 9)` | Start at index 0, take next 9 chars |
+| Result            | `"Venkatesh"`                       |
+
+You’re right to observe: 0 to 8 = 9 characters
+This method counts the number of characters, not end index.
+
+-------------
+string Name = "VENKATESH REDDY";
+string firstname = Name.Substring(0, 9);      //  correct
+string lastname = Name.Substring(10, 14);     // not correct
+
+Problem:
+Name.Substring(10, 14)
+
+This means:
+
+Start from index 10
+
+Take 14 characters from there
+
+
+Correct Code:-
+
+You should take only 5 characters from index 10:
+
+string lastname = Name.Substring(10, 5);  // "REDDY"
+
+Final Working Code:-
+------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string Name = "VENKATESH REDDY";
+        string firstname = Name.Substring(0, 9);
+        string lastname = Name.Substring(10, 5);
+
+        Console.WriteLine("First Name: " + firstname);
+        Console.WriteLine("Last Name: " + lastname);
+    }
+}
+
+
+ OUTPUT:-
+ ------
+First Name: VENKATESH
+Last Name: REDDY
+
+ Rule to Remember:
+ 
+ string.Substring(startIndex, length);
+
+startIndex: Where to start
+
+length: How many characters to take (not end position)
+--------------------------------------------------------------------------
+
+
+
+C# Replace() Method
+
+2.Replace(oldValue,newValue)
+
+The Replace() method is used to replace all occurrences of a specific word or character in a string with a new word or character.
+
+Syntax-
+-------
+string newString = originalString.Replace(oldValue, newValue);
+
+oldValue: the text you want to change
+
+newValue: the text you want to put in its place
+
+Simple Example-
+-------------
+string sentence = "I love Java";
+string updated = sentence.Replace("Java", "C#");
+Console.WriteLine(updated); // Output: I love C#
+
+Character Replacement Example-
+
+string data = "a-b-c-d";
+string clean = data.Replace("-", ",");
+Console.WriteLine(clean);  // Output: a,b,c,d
+
+Replace Letters Inside Words-
+
+string title = "CSharp Programming";
+string updatedTitle = title.Replace("a", "@");
+Console.WriteLine(updatedTitle); // Output: CSh@rp Progr@mming
+
+Case Sensitivity-
+----------------
+The Replace() method is case-sensitive:
+
+string name = "Venkatesh";
+Console.WriteLine(name.Replace("v", "X")); // Output: Venkatesh (no change)
+
+"v" ≠ "V" — so nothing is replaced.
+
+
+
+Real-Life Use Cases-
+
+
+| Use Case                | Example                                   |
+| ----------------------- | ----------------------------------------- |
+| Replacing tech names    | `"I love Java"` → `"I love C#"`           |
+| Masking sensitive words | `"This is bad"` → `"This is ***"`         |
+| Cleaning user input     | Replace `-` with space, or `@` with blank |
+| Updating templates      | `"Hello {name}"` → `"Hello Venkatesh"`    |
+| Formatting data         | `"01-01-2024"` → `"01/01/2024"`           |
+
+
+Summary Table-
+-------------
+| Method Call             | What It Does                   |
+| ----------------------- | ------------------------------ |
+| `Replace("old", "new")` | Replaces text                  |
+| `Replace("a", "@")`     | Replaces every `a` with `@`    |
+| Case sensitive          | `"a"` ≠ `"A"`                  |
+| Returns a new string    | Original string doesn't change |
+
+
+--------------------------------------------------------------------------------------
+
+
+
+3.Understanding string.Compare() in C#-
+---------------------------
+What Does Compare() Do?
+It compares two strings and tells who is greater, smaller, or equal alphabetically.
+
+You don’t get true/false — you get:
+
+0 → if both strings are equal
+
+-1 → if first string is less
+
+1 → if first string is greater
+
+Real-Life Analogy:
+-----------------
+Imagine you're sorting names alphabetically in a class attendance list:
+
+Names:
+
+"Apple"
+
+"Banana"
+
+"Cat"
+Apple" comes before "Banana", so:
+
+string.Compare("Apple", "Banana"); // -1
+
+Example 1 – Equal Strings
+---------
+
+int result = string.Compare("venkatesh", "venkatesh");
+
+Console.WriteLine(result); // Output: 0
+
+
+Example 2 – First is Smaller
+---------
+
+int result = string.Compare("apple", "banana");
+
+Console.WriteLine(result); // Output: -1
+
+"apple" comes before "banana" → result is -1
+
+Example 3 – First is Greater
+---------
+int result = string.Compare("zebra", "dog");
+
+Console.WriteLine(result); // Output: 1
+
+"zebra" comes after "dog" → result is 1
+-----------------------
+
+ How C# Decides Which Is Greater?
+ 
+ C# compares letter by letter, using something called ASCII value.
+
+'a' < 'b' < 'c' < ... < 'z'
+
+'A' < 'Z' < 'a'
+
+So:
+string.Compare("Abc", "abc"); // Output: -1 (capital A comes before small a)
+
+
+Optional: Ignore Case Sensitivity-
+int result = string.Compare("Venkatesh", "VENKATESH", true);
+
+The 3rd parameter true → ignore case
+
+Output: 0 (they're considered equal now)
+
+
+
+Summary Table for Notes-
+
+| Code                          | Output | Meaning                 |
+| ----------------------------- | ------ | ----------------------- |
+| `Compare("A", "A")`           | 0      | Both are equal          |
+| `Compare("A", "B")`           | -1     | A comes before B        |
+| `Compare("Zebra", "Apple")`   | 1      | Zebra comes after Apple |
+| `Compare("abc", "ABC", true)` | 0      | Ignores case, equal     |
