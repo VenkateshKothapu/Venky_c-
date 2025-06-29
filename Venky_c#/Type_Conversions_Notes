@@ -1,0 +1,339 @@
+C# Type Conversion:-
+------------------
+What Is Type Conversion?
+Type Conversion means changing one type of data into another.
+
+Like:
+
+Turning a string into a number
+
+Turning a number into text
+
+Turning a float into an int
+example:-
+-------
+string → int
+
+int → string
+
+float → int
+
+int → double
+
+This is super important when dealing with:
+
+User input
+
+Calculations
+
+Database values
+
+File reading
+
+2 Types of Conversion:-
+---------------------
+
+
+| Type              | Who does it?     | Safe?         | Example                         |
+| ----------------- | ---------------- | ------------- | ------------------------------- |
+| Implicit          | C# automatically | Safe          | `int → long`                    |
+| Explicit (Manual) | You do it        | May lose data | `float → int` or `string → int` |
+
+
+
+1.Implicit Conversion (No data loss)-
+
+C# does this automatically when there’s no risk of data loss
+
+
+int num = 100;
+long bigNum = num;  // No need to convert manually
+
+Because long can safely store everything an int has.
+
+
+ 2. Explicit Conversion (Done Manually):-
+ 
+-You must convert it manually
+-May cause data loss or error
+-There are 3 main ways:
+
+A. Using Convert Class-
+
+string ageText = "25";
+int age = Convert.ToInt32(ageText);
+
+ It reads the text "25" and converts it into number 25.
+ 
+Other Convert Methods:
+Convert.ToDouble()
+
+Convert.ToBoolean()
+
+Convert.ToString()
+
+
+B. Using .ToString() — For Converting Any Value to String-
+
+Example:-
+
+int marks = 90;
+string markText = marks.ToString();
+
+Now you can store or print it like text.
+
+
+C. Using Type Casting — (type):
+
+Example:-
+
+double height = 5.8;
+int roundedHeight = (int)height;
+Console.WriteLine(roundedHeight);  // Output: 5
+
+It drops the decimal part.
+
+
+D. Using Parse() – Convert from String to Number:
+
+string salary = "50000";
+int sal = int.Parse(salary);
+
+Works only if the string is pure number.
+
+
+E.Using TryParse() – Safer Way (No Error)-
+
+TryParse() is a safe way to convert a string to a number without crashing the program.
+
+It tells you:
+
+*if the conversion succeeded
+
+*or failed (without throwing an error)
+
+Why Use TryParse() Instead of Parse()?
+
+| Feature           | `Parse()`                | `TryParse()`                      |
+| ----------------- | ------------------------ | --------------------------------- |
+| Crashes on error? | Yes (throws exception)   |  No (returns `false`)            |
+| Safe to use?      | Risky for bad input      |  Best for user input or unknown  |
+| Returns what?     | The converted value      | `true` or `false` + output result |
+
+
+
+. Syntax of TryParse()-
+
+bool result = int.TryParse(stringValue, out int variableName);
+
+| Part               | Meaning                                              |
+| ------------------ | ---------------------------------------------------- |
+| `stringValue`      | The value to convert (usually user input)            |
+| `out int variable` | The output variable to store the number              |
+| `bool result`      | Will be `true` if conversion succeeded, else `false` |
+
+Simple Working Example-
+-------------------------
+
+string input = "123";
+int number;
+
+bool success = int.TryParse(input, out number);
+
+if (success)
+{
+    Console.WriteLine("Conversion successful: " + number);
+}
+else
+{
+    Console.WriteLine("Invalid number input.");
+}
+
+
+Explanation:
+"123" is a valid number
+
+TryParse() successfully converts it into int
+
+number = 123
+
+success = true
+
+
+Example with Invalid Input-
+-------------------------
+
+string input = "abc123";
+int number;
+
+bool success = int.TryParse(input, out number);
+
+if (success)
+{
+    Console.WriteLine("Conversion successful: " + number);
+}
+else
+{
+    Console.WriteLine("Invalid number input.");  // This will run
+}
+
+
+Output:-
+
+Invalid number input.
+
+"abc123" can’t be converted to a number — so TryParse() fails gracefully without crashing.
+
+
+
+Final Real-Time Example:-
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter your age: ");
+        string input = Console.ReadLine();
+
+        int age;
+        if (int.TryParse(input, out age))
+        {
+            Console.WriteLine("Your age is: " + age);
+        }
+        else
+        {
+            Console.WriteLine("Please enter a valid number for age.");
+        }
+    }
+}
+
+
+Safe and user-friendly — works even if user types wrong values.
+
+
+Summary Table-
+
+| Task                        | Use This                              |
+| --------------------------- | ------------------------------------- |
+| Convert string → int safely | `int.TryParse("25", out int x)`       |
+| Check if input is valid     | It returns `true` or `false`          |
+| Avoid crashing on bad input | Use `TryParse()` instead of `Parse()` |
+
+
+
+
+Summary Table-
+
+| From → To      | Method/Code                  | Notes                                     |
+| -------------- | ---------------------------- | ----------------------------------------- |
+| `int → string` | `int x = 10; x.ToString();`  | For printing or joining with text         |
+| `string → int` | `Convert.ToInt32("25")`      | Converts clean number in string           |
+| `string → int` | `int.Parse("40")`            | Same as above but throws error if invalid |
+| `string → int` | `int.TryParse("abc", out x)` | Safer – returns false on error            |
+| `float → int`  | `(int)5.9`                   | Drops decimals                            |
+
+
+
+
+MYPROGRAM-
+--------
+
+
+using System;
+ class TypeConversion
+ {
+    static void Main(String[] args)
+    {
+        //implict conversion type - done by c# automatically
+
+        string ageText = "25";
+        int age = Convert.ToInt32(ageText);
+        Console.WriteLine(age);
+
+        //explicit conversion type -done manually
+
+        //using Convert.ToInt32(),ToString()
+
+        string ageinText = "32";
+        int ageinNum = Convert.ToInt32(ageinText);
+        Console.WriteLine(ageinNum);
+
+        int ageinint = 26;
+        string ageintext = Convert.ToString(ageinint);
+        Console.WriteLine(ageintext);
+
+
+        //using casting operator
+
+        double Weight = 90.400;
+        int roundedweight = (int)Weight;
+        Console.WriteLine(roundedweight);
+
+        //using parse() or TryParse()(from string)
+        string salary = "50000";
+        int sal = int.Parse(salary);
+        Console.WriteLine(sal);
+        string weight = "90.400";
+        double weightindouble = double.Parse(weight);
+        Console.WriteLine(weightindouble);
+
+        //using TryParse()
+
+        string Textage = "123";
+        int numberage;
+
+        bool Sucess = int.TryParse(Textage, out numberage);
+
+        if (Sucess)
+        {
+            Console.WriteLine("Conversion Succesful :" + numberage);
+
+        }
+        else
+        {
+            Console.WriteLine("Conversion failed because invalid number input :");
+        }
+
+
+        string height = "6";
+        int heightinfeet;
+
+        bool sucess = int.TryParse(height, out heightinfeet);
+
+        if (sucess)
+        {
+            Console.WriteLine("Conversation from string  to int is sucessful :" + heightinfeet);
+
+        }
+        else
+        {
+            Console.WriteLine("conversation is failed because invalid number input");
+        }
+
+
+        string Numberofcars = "25 cars";
+        int countofcars;
+        bool sucessful = int.TryParse(Numberofcars, out countofcars);
+
+        if (sucessful)
+        {
+            Console.WriteLine(" Count of cars i sucessful:" + countofcars);
+
+        }
+
+        else
+        {
+            Console.WriteLine("count of cars is not sucess ");
+        }
+
+
+
+
+
+
+    }
+ }
+
