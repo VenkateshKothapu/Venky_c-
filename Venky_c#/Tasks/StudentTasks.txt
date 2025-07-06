@@ -1,0 +1,719 @@
+ Day 1: String Arrays, Loops, Operators, Data Types
+
+
+Task 1: Prepare the String Array
+-------
+
+In C#, an array is a collection of elements of the same data type.
+
+string[] employees = { "John", "Robert", "Chandra", "Peter" };
+
+Notes:
+
+Arrays are fixed in size.
+
+Index starts from 0.
+
+Indexes:
+John = 0, Robert = 1, Chandra = 2, Peter = 3
+
+
+Task 2: Get the Third Employee from the Array
+---------
+
+Console.WriteLine(employees[2]); // Output: Chandra
+
+ Notes:
+
+Index 2 gives the third element.
+
+Syntax: array[index]
+
+
+
+Task 3: Check whether Second and Third employees are equal
+-----------
+
+bool areEqual = employees[1] == employees[2];
+Console.WriteLine(areEqual);  // Output: False
+
+Explanation: "Robert" is not equal to "Chandra".
+
+
+Task 4: Check the employee whose name starts with “J”
+--------
+foreach (string emp in employees)
+{
+    if (emp.StartsWith("J"))
+    {
+        Console.WriteLine(emp);
+    }
+}
+
+Output-
+------
+
+John
+
+
+Task 5: Convert Employees List into Single String
+------
+string result = string.Join(", ", employees);
+Console.WriteLine(result);
+
+Output:
+
+John, Robert, Chandra, Peter
+
+Task 6: Replace “Robert” with “Peter” in the string
+------
+string updated = result.Replace("Robert", "Peter");
+Console.WriteLine(updated);
+
+ Output-
+ ------
+
+John, Peter, Chandra, Peter
+
+
+Task 7: Get Employees with Name Length > 4
+---------
+
+foreach (string emp in employees)
+{
+    if (emp.Length > 4)
+    {
+        Console.WriteLine(emp);
+    }
+}
+
+Output:
+
+Robert
+Chandra
+Peter
+
+
+Task 8: Difference Between for and foreach
+-------
+
+ for loop:
+ 
+ for (int i = 0; i < employees.Length; i++)
+{
+    Console.WriteLine(employees[i]);
+}
+
+
+Use (for) when:
+
+You need index values.
+
+You want more control over iteration
+
+foreach loop:
+-----------
+foreach (string emp in employees)
+{
+    Console.WriteLine(emp);
+}
+
+Use foreach when:
+
+You just want to read each item.
+
+You don’t need the index.
+
+
+Task 9: Importance of Looping System
+
+Loops are used to perform repetitive tasks without rewriting code.
+
+➤ Example:
+
+for (int i = 1; i <= 5; i++)
+{
+    Console.WriteLine("Welcome " + i);
+}
+
+Output-
+
+Welcome 1
+Welcome 2
+...
+
+Task 10: Floating Data Types
+-----------
+
+float a = 5.5f;
+double b = 12.3456;
+decimal c = 1234.56m;
+
+Summary:
+
+float: 32-bit, ends with f.
+
+double: 64-bit, default for decimals.
+
+decimal: 128-bit, for money, ends with m.
+
+
+Task 11: Logical Operators-
+---------
+Used to combine or check multiple conditions.
+
+bool result = (5 > 3) && (8 > 6); // true
+bool result2 = (5 > 3) || (8 < 6); // true
+bool result3 = !(5 > 3); // false
+
+Logical Operators:
+
+&& = AND
+
+|| = OR
+
+! = NOT
+-----------------------
+
+Day 2: Nullable, Type Conversion, Methods
+
+Task 12: What is Nullable Type?
+-------
+
+Used when a value type (like int) needs to hold null.
+
+
+int? age = null;
+if (age == null)
+{
+    Console.WriteLine("Age is not provided");
+}
+
+ Use when:
+
+A value may or may not exist (like from DB, form input)
+
+Task 13: What is Implicit Conversion?
+-------
+
+Implicit: Auto conversion when no data loss happens.
+
+int x = 100;
+float y = x; // Implicit
+
+No cast needed when:
+
+Smaller type → Bigger type
+
+
+
+Task 14-Method with params and Return Type
+--------
+Task 14: What is params in C#?
+Definition (Simple Words):
+params keyword allows you to pass a variable number of arguments to a method.
+
+This means you don’t need to know how many inputs you will pass — it can take 1, 2, or 10 or more values.
+
+Syntax:
+
+public static int AddNumbers(params int[] numbers)
+{
+    // logic
+}
+
+
+params int[] numbers → means you can send multiple integers.
+
+Inside the method, numbers behaves like an array.
+
+
+Why do we need it?
+
+
+Let’s say you want a method to add numbers:
+
+Sometimes you want to add 2 numbers,
+
+Sometimes 3 or 5 numbers.
+
+Without params, you would need to create separate methods like:
+
+AddTwoNumbers(int a, int b)
+AddThreeNumbers(int a, int b, int c)
+AddFiveNumbers(int a, int b, int c, int d, int e)
+
+But with params, you can just write one method to handle all:
+
+AddNumbers(params int[] nums)
+
+
+Real-Life Example (Ordering Food)
+Imagine a waiter takes your food order. Sometimes you order 1 item, sometimes 4. You don’t want to call a different waiter for each case.
+
+Similarly, params is like a flexible waiter who accepts any number of items.
+
+Full Working Example-
+
+
+using System;
+
+class ParamsExample
+{
+    // Method with 'params'
+    public static int AddNumbers(params int[] numbers)
+    {
+        int sum = 0;
+        foreach (int num in numbers)
+        {
+            sum += num;
+        }
+        return sum;
+    }
+
+    static void Main()
+    {
+        Console.WriteLine(AddNumbers(10, 20));              // 2 values
+        Console.WriteLine(AddNumbers(1, 2, 3, 4, 5));        // 5 values
+        Console.WriteLine(AddNumbers());                    // 0 values
+    }
+}
+
+Output:
+
+30
+15
+0
+
+
+important Rules about params:-
+| Rule                                                           | Description |
+| -------------------------------------------------------------- | ----------- |
+| Only **one** `params` keyword allowed per method             |             |
+| It must be the **last parameter** in the method              |             |
+| You can pass **comma-separated values** or even an **array** |             |
+| The method treats it like an **array** inside                |             |
+
+
+
+
+Summary Notes:
+-------------
+
+- `params` allows variable number of arguments.
+- Useful when number of inputs is not fixed.
+- Treated as an array inside the method.
+- Must be the last parameter in the method.
+
+Understanding Keywords:
+| Keyword  | Meaning                                       |
+| -------- | --------------------------------------------- |
+| `params` | Allows multiple inputs (flexible arguments)   |
+| `int[]`  | Accepts multiple integers (like an array)     |
+| `int`    | Return type — the method will return an `int` |
+| `return` | Used to return the final result               |
+
+
+ Final Working Code Example:
+
+using System;
+
+class Task_Params_Return
+{
+    // Method: Accepts multiple numbers using params and returns the sum
+    public static int AddNumbers(params int[] numbers)
+    {
+        int sum = 0;
+
+        foreach (int num in numbers)
+        {
+            sum += num;
+        }
+
+        return sum;  // Returning the total sum
+    }
+
+    static void Main()
+    {
+        int result1 = AddNumbers(10, 20);  // 2 values
+        int result2 = AddNumbers(5, 10, 15, 20);  // 4 values
+        int result3 = AddNumbers();  // No values
+
+        Console.WriteLine("Sum1: " + result1); // Output: 30
+        Console.WriteLine("Sum2: " + result2); // Output: 50
+        Console.WriteLine("Sum3: " + result3); // Output: 0
+    }
+}
+
+
+
+✔ Method with params and return:
+    - Use `params` to accept variable number of inputs.
+    - Use a loop to process inputs.
+    - Use `return` to return the result.
+
+✔ Syntax:
+    public static ReturnType MethodName(params DataType[] variableName)
+
+✔ Example:
+    public static int AddNumbers(params int[] numbers)
+
+✔ Inside the method:
+    - Declare a variable (e.g., int sum = 0)
+    - Loop through the inputs
+    - Add values to the sum
+    - Return the result using `return sum;`
+
+
+Real-Life Example Analogy:
+Think of params like a shopping cart:
+You can put 1 item or 100 items, but the billing counter (method) will sum the total price and give you the final bill (return value).
+
+
+
+Task: Prepare Methods with Conditions (if, else if, else)
+
+
+ Step 1: What are Conditional Statements?
+Conditional statements help your program make decisions based on certain conditions.
+
+
+
+Syntax of if - else if - else:
+
+if (condition1)
+{
+    // Executes if condition1 is true
+}
+else if (condition2)
+{
+    // Executes if condition2 is true
+}
+else
+{
+    // Executes if none of the above conditions are true
+}
+
+
+Full Example: Method to Check Student Grade
+Requirement:
+Create a method that:
+
+Takes marks as input
+
+Returns the grade as a string:
+
+Marks >= 90 → "Excellent"
+
+Marks >= 60 → "Good"
+
+Marks >= 35 → "Average"
+
+Marks < 35 → "Fail"
+
+using System;
+
+class Task_Conditions
+{
+    // Method that takes marks and returns grade
+    public static string GetGrade(int marks)
+    {
+        if (marks >= 90)
+        {
+            return "Excellent";
+        }
+        else if (marks >= 60)
+        {
+            return "Good";
+        }
+        else if (marks >= 35)
+        {
+            return "Average";
+        }
+        else
+        {
+            return "Fail";
+        }
+    }
+
+    static void Main()
+    {
+        Console.WriteLine("Marks: 95 → Grade: " + GetGrade(95));
+        Console.WriteLine("Marks: 65 → Grade: " + GetGrade(65));
+        Console.WriteLine("Marks: 40 → Grade: " + GetGrade(40));
+        Console.WriteLine("Marks: 20 → Grade: " + GetGrade(20));
+    }
+}
+
+
+
+
+Summary Notes :
+
+✔ Use if-else-if-else to handle multiple conditions.
+✔ Only one block will execute based on the condition.
+✔ Common use cases: grading systems, billing logic, score checking, etc.
+
+✔ Syntax:
+   if (condition1)
+   {
+       // logic
+   }
+   else if (condition2)
+   {
+       // logic
+   }
+   else
+   {
+       // default logic
+   }
+
+✔ Tip: Always end with `else` to catch remaining cases.
+
+Real-Life Example:
+If temperature > 35 → "Very Hot"
+Else if temp > 25 → "Normal"
+Else → "Cold"
+
+This helps in handling real-world decisions based on input values.
+
+
+Task: Prepare Methods with Conditions (Switch Case)
+------
+
+Step 1: What is switch in C#?
+The switch statement is used to check one variable against multiple possible values (called "cases").
+
+Instead of using multiple if-else if-else, you can use switch for cleaner and readable code — especially when checking a single variable.
+
+Syntax of switch:
+
+switch (variable)
+{
+    case value1:
+        // code block
+        break;
+
+    case value2:
+        // code block
+        break;
+
+    default:
+        // code block for unmatched cases
+        break;
+}
+
+Example 1: Method to Display Day Message
+Requirement:
+Create a method that:
+
+Takes day name (as string)
+
+Returns a message depending on the day:
+
+"Monday" → "Start your week strong!"
+
+"Friday" → "Weekend is near!"
+
+"Sunday" → "Relax, it's Sunday!"
+
+Default → "Just another day."
+
+ Code:-
+ -----
+
+using System;
+
+class Task_SwitchCase
+{
+    public static string GetDayMessage(string day)
+    {
+        switch (day)
+        {
+            case "Monday":
+                return "Start your week strong!";
+            
+            case "Friday":
+                return "Weekend is near!";
+            
+            case "Sunday":
+                return "Relax, it's Sunday!";
+            
+            default:
+                return "Just another day.";
+        }
+    }
+
+    static void Main()
+    {
+        Console.WriteLine(GetDayMessage("Monday"));   // Output: Start your week strong!
+        Console.WriteLine(GetDayMessage("Friday"));   // Output: Weekend is near!
+        Console.WriteLine(GetDayMessage("Wednesday"));// Output: Just another day.
+        Console.WriteLine(GetDayMessage("Sunday"));   // Output: Relax, it's Sunday!
+    }
+}
+
+
+Summary Notes (for Team):
+
+
+✔ Use switch when checking ONE variable against MANY values.
+✔ Each "case" must end with a break.
+✔ "default" handles all unmatched values.
+
+✔ Syntax:
+    switch (value)
+    {
+        case value1:
+            // logic
+            break;
+
+        case value2:
+            // logic
+            break;
+
+        default:
+            // logic
+            break;
+    }
+
+✔ switch works with:
+    - int, string, char, enum
+✔ Cleaner than multiple if-else blocks for same variable
+
+
+
+Real-Life Example:
+If a person presses a button:
+
+1 = Start
+
+2 = Stop
+
+3 = Pause
+
+Others = Invalid command
+
+You can handle this nicely using switch-case.
+
+-----------
+
+Task: Prepare Methods with if-else-if-else + switch-case-
+-------
+
+Scenario:
+Create a method that:
+
+Takes two inputs:
+
+int marks (student’s marks)
+
+string subject (like "Math", "Science", etc.)
+
+It should:
+
+First check the grade using if-else-if-else based on marks.
+
+Then check the subject using switch-case to give subject-specific comments.
+
+Step-by-Step Code:
+
+
+using System;
+
+class Task_CombinedConditions
+{
+    public static void CheckStudentPerformance(int marks, string subject)
+    {
+        // Step 1: Grading based on marks (if-else-if)
+        if (marks >= 90)
+        {
+            Console.WriteLine("Grade: Excellent");
+        }
+        else if (marks >= 60)
+        {
+            Console.WriteLine("Grade: Good");
+        }
+        else if (marks >= 35)
+        {
+            Console.WriteLine("Grade: Average");
+        }
+        else
+        {
+            Console.WriteLine("Grade: Fail");
+        }
+
+        // Step 2: Comment based on subject (switch-case)
+        switch (subject)
+        {
+            case "Math":
+                Console.WriteLine("Subject Comment: Practice daily to master concepts.");
+                break;
+
+            case "Science":
+                Console.WriteLine("Subject Comment: Focus on experiments and understanding.");
+                break;
+
+            case "English":
+                Console.WriteLine("Subject Comment: Improve your vocabulary and writing.");
+                break;
+
+            default:
+                Console.WriteLine("Subject Comment: No specific comment.");
+                break;
+        }
+    }
+
+    static void Main()
+    {
+        CheckStudentPerformance(85, "Math");
+        Console.WriteLine();
+        
+        CheckStudentPerformance(55, "Science");
+        Console.WriteLine();
+        
+        CheckStudentPerformance(25, "History");
+    }
+}
+
+
+Output:-
+---------
+
+Grade: Good
+Subject Comment: Practice daily to master concepts.
+
+Grade: Average
+Subject Comment: Focus on experiments and understanding.
+
+Grade: Fail
+Subject Comment: No specific comment.
+
+Summary Notes (Trainer Style):-
+-----------------------------
+
+✔ You can combine multiple condition types in one method.
+✔ Use `if-else-if-else` when comparing ranges or different logical conditions.
+✔ Use `switch-case` when comparing a single value to many fixed options.
+
+✔ Example logic:
+    - Check marks → grade (using if-else)
+    - Check subject → advice (using switch)
+
+✔ Good for real-life scenarios like:
+    - Exams
+    - Shopping bill + item category
+    - Age + city-based offers
+
+
+Real-Life Analogy:
+A teacher checks a student’s score and says:
+
+“Your grade is Good.”
+Then based on the subject, the teacher adds:
+
+“Since it’s Math, practice more!”
+
+This is how if (for grade) + switch (for subject) can work together!
+
+
