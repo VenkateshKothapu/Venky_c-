@@ -689,7 +689,7 @@ Subject Comment: Focus on experiments and understanding.
 Grade: Fail
 Subject Comment: No specific comment.
 
-Summary Notes (Trainer Style):-
+Summary Notes :-
 -----------------------------
 
 ✔ You can combine multiple condition types in one method.
