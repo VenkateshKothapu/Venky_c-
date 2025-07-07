@@ -1,0 +1,118 @@
+Value Types vs Reference Types in C#
+
+Why Is This Topic Important?
+----------------------------
+This topic helps you understand:
+
+How variables are stored in memory
+
+Why some values are copied, and others are shared
+
+Real-time bugs and behavior in C# programs
+
+Very commonly asked in interviews and projects
+
+
+What Are Value Types?-
+---------------------
+value types store the actual value directly in memory.
+
+ Examples:-
+ ---------
+ 
+ -> int, float, double, bool, char, decimal, struct, enum
+ 
+ 
+ Real-Life Analogy:-
+ ------------------
+ 
+ Imagine writing your age on a whiteboard. The number is actually stored right there.
+
+
+Example:-
+---------
+int a = 10;
+int b = a;
+
+b = 20;
+
+Console.WriteLine(a);  // Output: 10
+Console.WriteLine(b);  // Output: 20
+
+a and b are separate copies. Changing b doesn't affect a.
+
+
+ What Are Reference Types?-
+ --------------------------
+ 
+ Reference types store a reference (address) to the value in memory.
+ 
+  Examples:-
+  ----------
+  string, class, array, object, delegate
+  
+  Real-Life Analogy:-
+  -----------------
+  
+  Imagine having a room key (reference). You don’t hold the actual room — just the key to the room.
+
+ Example:-
+ ---------
+
+int[] arr1 = { 1, 2, 3 };
+int[] arr2 = arr1;
+
+arr2[0] = 99;
+
+Console.WriteLine(arr1[0]);  // Output: 99
+Console.WriteLine(arr2[0]);  // Output: 99
+
+
+Both arr1 and arr2 point to the same memory — so changing one changes the other.
+
+
+Difference Table (For Notes)-
+-----------------------------
+
+| Feature            | Value Type             | Reference Type             |
+| ------------------ | ---------------------- | -------------------------- |
+| Stores             | Actual data            | Memory address (reference) |
+| Stored in          | Stack                  | Heap                       |
+| Copy behavior      | Creates a new copy     | Points to the same object  |
+| Affects other var? |  No                    | Yes (if changed)           |
+| Examples           | `int`, `float`, `bool` | `string`, `array`, `class` |
+
+
+Real-Time Scenario (Interview Style)-
+-----------------------------------
+
+Let’s say you store user score in two variables:
+
+int score1 = 80;
+int score2 = score1;
+score2 = 100;
+
+score1 still holds 80 — because it's a value type.
+
+ But with arrays:-
+ ----------------
+ 
+int[] marks1 = { 70, 80, 90 };
+int[] marks2 = marks1;
+
+marks2[1] = 100;
+
+ Now marks1[1] becomes 100 too — because arrays are reference types.
+ 
+ Visual Summary:-
+ --------------
+
+// Value Type
+int a = 5;
+int b = a;  // b is a copy of a
+b = 10;     // a is still 5
+
+// Reference Type
+int[] x = {1, 2};
+int[] y = x;  // y points to same array
+y[0] = 99;    // x[0] is now 99 too
