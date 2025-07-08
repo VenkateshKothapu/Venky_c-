@@ -1,0 +1,231 @@
+Arrays in C#
+------------
+
+What Is an Array?
+
+An array is a variable that can store multiple values of the same data type in one place.
+
+Real-Life Example:-
+
+Imagine a train coach with 5 seats:
+
+All seats are numbered (index)
+
+All seats are for passengers (same type)
+
+Similarly, an array is like:-
+---------------------------
+
+string[] friends = { "John", "Robert", "Chandra", "Peter" };
+
+ Why Use Arrays?
+ 
+-To group similar data together
+-To avoid writing multiple variables for similar items
+
+Instead of:-
+----------
+
+string emp1 = "John";
+string emp2 = "Robert";
+string emp3 = "Peter";
+
+Use:
+----
+string[] employees = { "John", "Robert", "Peter" };
+
+
+Declaring an Array (2 Ways)-
+
+1.Declare and Assign Together:
+
+int[] numbers = { 10, 20, 30, 40 };
+
+2️.Declare First, Assign Later:-
+
+int[] scores = new int[3];  // size is 3
+
+scores[0] = 85;
+scores[1] = 90;
+scores[2] = 95;
+
+Understanding Indexing:
+
+| Element   | Index |
+| --------- | ----- |
+| "John"    | 0     |
+| "Robert"  | 1     |
+| "Chandra" | 2     |
+| "Peter"   | 3     |
+
+So:
+Console.WriteLine(employees[2]);  // Output: Chandra
+
+Full Example:-
+------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string[] employees = { "John", "Robert", "Chandra", "Peter" };
+
+        Console.WriteLine("First employee: " + employees[0]);
+        Console.WriteLine("Second employee: " + employees[1]);
+        Console.WriteLine("Third employee: " + employees[2]);
+        Console.WriteLine("Fourth employee: " + employees[3]);
+
+        Console.ReadLine();
+    }
+}
+
+
+
+
+
+If You Try to Access an Invalid Index:
+
+Console.WriteLine(employees[4]);  // Error! Index out of range
+
+
+
+Get Length of the Array-
+-----------------------
+
+Console.WriteLine(employees.Length);  // Output: 4
+
+
+ Summary for Notes-
+ -----------------
+| Feature         | Syntax / Example              |
+| --------------- | ----------------------------- |
+| Declare array   | `int[] nums = new int[5];`    |
+| Assign value    | `nums[0] = 100;`              |
+| Read value      | `Console.WriteLine(nums[0]);` |
+| Length          | `nums.Length`                 |
+| Index starts at | 0                             |
+
+
+
+Real-Time Scenario-
+
+Let’s say your app is storing exam marks:
+
+int[] marks = { 60, 75, 80, 90 };
+
+You can loop through all marks, add them, average them — everything easily.
+
+
+
+Practical Use of Arrays with Real-Time Examples-
+-------------------------------------------------
+1. Accessing Array Elements Dynamically
+
+string[] students = { "Venkatesh", "Rahul", "Sneha", "Manoj" };
+
+Console.WriteLine("First Student: " + students[0]);
+Console.WriteLine("Last Student: " + students[students.Length - 1]);  // Dynamic last index
+
+
+students.Length gives the total count
+To get the last element → use Length - 1
+
+
+2. Modifying Array Values-
+-------------------------
+
+int[] marks = { 45, 67, 89 };
+
+marks[1] = 75;  // change second mark
+
+Console.WriteLine("Updated Marks: " + marks[1]);  // Output: 75
+
+3. Real-Time Example: Storing 5 Employee Salaries
+
+
+int[] salaries = new int[5];
+
+salaries[0] = 25000;
+salaries[1] = 30000;
+salaries[2] = 28000;
+salaries[3] = 27000;
+salaries[4] = 32000;
+
+Console.WriteLine("Salary of employee 3: " + salaries[2]);
+
+
+4. What if You Access Invalid Index?-
+-----------------------------------
+Console.WriteLine(salaries[5]);  //  Error: Index out of range
+
+
+ Always stay within 0 to Length - 1
+ 
+
+5. Get Total Number of Elements in Array
+---------------------------------------
+
+Console.WriteLine("Total Employees: " + salaries.Length);  // Output: 5
+
+
+ 6. Array with var Keyword
+ ------------------------
+ var items = new string[] { "Pen", "Book", "Phone" };
+
+Console.WriteLine(items[1]);  // Output: Book
+
+
+var will automatically detect the array type
+
+7. Array with foreach – (Preview of Next Topic)-
+----------------------------------------------
+string[] tasks = { "Code", "Test", "Deploy" };
+
+foreach (string task in tasks)
+{
+    Console.WriteLine(task);
+}
+
+
+This will print all tasks — we’ll explore this in next topic.
+
+
+Summary – Array Key Points (Notes)-
+---------------------------------
+
+| Concept            | Explanation                                      |
+| ------------------ | ------------------------------------------------ |
+| Array Index        | Starts from 0                                    |
+| Access Element     | `array[index]`                                   |
+| Modify Element     | `array[index] = newValue;`                       |
+| Size of Array      | `array.Length`                                   |
+| Last Index         | `array.Length - 1`                               |
+| Error if out range | ❌ Accessing index outside range throws exception |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------
