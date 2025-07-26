@@ -1,0 +1,112 @@
+ What is a Method in C#?
+ ----------------------
+Definition:-
+----------
+A method is a block of code that performs a specific task.
+You write it once, and you can use (or “call”) it multiple times.
+
+Why Use Methods?
+To avoid writing the same code again and again.
+
+To break the program into small, manageable parts.
+
+To improve readability, reusability, and debugging.
+
+Basic Structure of a Method:-
+----------------------------
+
+<AccessModifier> <ReturnType> <MethodName>(<Parameters>)
+{
+    // Code to execute
+}
+
+
+Types of Methods-
+---------------
+
+| Type                               | Return Type          | Parameters | Example                      |
+| ---------------------------------- | -------------------- | ---------- | ---------------------------- |
+| 1. No return type, no parameters   | `void`               | None       | `void Greet()`               |
+| 2. No return type, with parameters | `void`               | Yes        | `void ShowName(string name)` |
+| 3. Return type, no parameters      | `int`, `string` etc. | None       | `int GetAge()`               |
+| 4. Return type, with parameters    | `int`, etc.          | Yes        | `int Add(int a, int b)`      |
+
+
+C# Full Program - All Method Types-
+----------------------------------
+
+using System;
+
+class Program
+{
+    // 1. No return, no parameters
+    static void Greet()
+    {
+        Console.WriteLine("Welcome to C# methods!");
+    }
+
+    // 2. No return, with parameters
+    static void DisplayName(string name)
+    {
+        Console.WriteLine("Hello " + name);
+    }
+
+    // 3. Return value, no parameters
+    static int GetFixedSalary()
+    {
+        return 50000;
+    }
+
+    // 4. Return value, with parameters
+    static int Add(int a, int b)
+    {
+        return a + b;
+    }
+
+    static void Main()
+    {
+        // Calling Method 1
+        Greet();
+
+        // Calling Method 2
+        DisplayName("Venkatesh");
+
+        // Calling Method 3
+        int salary = GetFixedSalary();
+        Console.WriteLine("Fixed salary is: " + salary);
+
+        // Calling Method 4
+        int sum = Add(10, 20);
+        Console.WriteLine("Sum is: " + sum);
+    }
+}
+
+
+ Quick Summary Points to Remember:-
+ --------------------------------
+
+A method is used to perform a task (like a small worker).
+
+void means no return value.
+
+You call a method to make it execute.
+
+If static, call it directly in Main.
+
+If not static, create an object first.
+
+return gives a value back to Main (or to wherever it's called from).
+
+Parameters are like inputs to the method.
+
+If you're ready, I’ll now show you a simple full program with all 4 types of methods, and then we’ll go step by step to explain each.
+
+Do you want to see that now?
+
+Here's a full example showing all 4 types of methods in a single program. We'll break it down slowly after this.
+
+
+
+
+
+
