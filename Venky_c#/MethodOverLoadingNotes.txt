@@ -1,0 +1,186 @@
+ What is Method Overloading in C#?-
+ ---------------------------------
+ 
+Definition:-
+-----------
+Method overloading means creating multiple methods with the same name but different parameters (either in number, type, or order).
+
+It allows methods to handle different types or numbers of arguments while performing similar functionality.
+
+
+Why use Method Overloading-
+--------------------------
+To reuse method names for similar operations.
+
+To make your code cleaner, readable, and user-friendly.
+
+To handle different types of inputs with a single method name.
+
+
+Method Overloading – RULES-
+--------------------------
+ 
+ In C#, when we overload methods (i.e., create methods with the same name but different versions), the compiler needs to identify which version to call based on the parameters passed.
+ 
+Rule 1: Different Number of Parameters
+-------
+If the methods have a different number of parameters, they can be overloaded.
+
+Example:-
+-------
+void PrintInfo(string name)
+{
+    Console.WriteLine("Name: " + name);
+}
+
+void PrintInfo(string name, int age)
+{
+    Console.WriteLine("Name: " + name + ", Age: " + age);
+}
+
+
+In this example, method name is same PrintInfo, but:
+
+First method takes 1 parameter
+
+Second method takes 2 parameters
+This is valid overloading
+
+
+Different Data Types of Parameters
+----------------------------------
+
+Even if the number of parameters is the same, changing the data type makes it a valid overload.
+
+Example:-
+--------
+void Show(int number)
+{
+    Console.WriteLine("Number: " + number);
+}
+
+void Show(string text)
+{
+    Console.WriteLine("Text: " + text);
+}
+
+
+Both methods have 1 parameter, but:
+
+One is int
+
+One is string
+This is valid overloading
+
+ Rule 3: Different Order of Parameters (with Different Types)
+ 
+ If you change the order of parameters with different types, it's also allowed.
+
+Example:
+
+void Display(string name, int age)
+{
+    Console.WriteLine("Name: " + name + ", Age: " + age);
+}
+
+void Display(int age, string name)
+{
+    Console.WriteLine("Age: " + age + ", Name: " + name);
+}
+
+ Here:
+
+Parameters are same types, but order is different
+This is valid overloading
+
+
+
+❌ Invalid Overloading: Changing Only Return Type
+
+Changing just the return type is NOT allowed for overloading.
+
+Invalid Example:
+
+int Calculate(int x, int y)
+{
+    return x + y;
+}
+
+double Calculate(int x, int y)
+{
+    return x + y;
+}
+
+❌ Compiler Error: “Method already defined”
+
+Both methods have same name & parameters
+
+Only return type differs ➡️ NOT enough to overload
+
+Quick Summary Table-
+-------------------
+
+| Rule                         | Allowed? | Example Summary                                   |
+| ---------------------------- | -------- | ------------------------------------------------- |
+| Same name + different count  | ✅ Yes    | `Add(int a)` vs. `Add(int a, int b)`              |
+| Same name + different types  | ✅ Yes    | `Add(int a, int b)` vs. `Add(double a, double b)` |
+| Same name + different order  | ✅ Yes    | `Add(string, int)` vs. `Add(int, string)`         |
+| Same name + only return type | ❌ No     | `int Add(int a)` vs. `double Add(int a)`          |
+
+
+Real-Life Analogy (to Remember)
+-------------------------------
+Mobile recharge app:
+
+Recharge(mobileNumber)
+
+Recharge(mobileNumber, amount)
+
+Recharge(mobileNumber, amount, planType)
+
+All these are different overloads of the same action: Recharge, but based on different parameters.
+
+
+Real-Life Example (Memory Trick)
+Example: Think about a mobile camera:
+
+Camera.Click() — takes normal photo
+
+Camera.Click(mode) — takes photo in night mode
+
+Camera.Click(timer, mode) — takes photo after 3 seconds in night mode
+
+Same action name “Click” with different ways to use = Overloading
+
+Example Code in C#-
+-------------------
+ 
+ using System;
+
+class OverloadingExample
+{
+    // Method 1: 2 integers
+    static int Add(int a, int b)
+    {
+        return a + b;
+    }
+
+    // Method 2: 3 integers
+    static int Add(int a, int b, int c)
+    {
+        return a + b + c;
+    }
+
+    // Method 3: 2 doubles
+    static double Add(double a, double b)
+    {
+        return a + b;
+    }
+
+    static void Main()
+    {
+        Console.WriteLine("Add 2 int: " + Add(5, 10));       // Calls Method 1
+        Console.WriteLine("Add 3 int: " + Add(5, 10, 15));    // Calls Method 2
+        Console.WriteLine("Add 2 double: " + Add(5.5, 4.5));  // Calls Method 3
+    }
+}
